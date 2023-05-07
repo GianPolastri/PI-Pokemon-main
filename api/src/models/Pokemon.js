@@ -14,6 +14,13 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
+    img: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true,
+      }
+    },
     hp:{
       type: DataTypes.INTEGER,
       allowNull: false,
