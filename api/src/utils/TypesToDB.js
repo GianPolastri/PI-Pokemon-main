@@ -27,7 +27,7 @@ const getAllTypesToDB = async () => {
       };
       return cleanType;
     });
-    // console.log(allCleanTypes);
+    console.log('Se pegaron los types a la DB');
     Type.bulkCreate(allCleanTypes);
   } catch (error) {
     console.log(error);
