@@ -5,7 +5,7 @@ const { API_URL } = process.env;
 
 const getByName = async (name) => {
   const pokemon = await axios
-    .get(`${API_URL}/pokemon/${name}`)
+    .get(`${API_URL}/pokemon/${name.toLowerCase()}`)
     .then((response) => response.data)
 
   // console.log(pokemon);
