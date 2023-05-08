@@ -34,4 +34,5 @@ const getAllTypesToDB = async () => {
   }
 };
 
-// getAllTypesToDB();
+getAllTypesToDB();
+module.exports = getAllTypesToDB;
