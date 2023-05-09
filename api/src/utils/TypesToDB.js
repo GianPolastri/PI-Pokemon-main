@@ -23,12 +23,11 @@ const getAllTypesToDB = async () => {
       const cleanType = {
         id: ty.id,
         name: ty.name,
-        name_es: ty.names[5].name,
       };
       return cleanType;
     });
-    console.log('Se pegaron los types a la DB');
     Type.bulkCreate(allCleanTypes);
+    console.log('Se pegaron los types a la DB');
   } catch (error) {
     console.log(error);
   }
