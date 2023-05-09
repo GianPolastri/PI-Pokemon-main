@@ -12,7 +12,7 @@ const pokemonCleaner = (pokemons) => {
             speed: pokemon.stats[5].base_stat,
             height: pokemon.height,
             weight: pokemon.weight,
-            type: Array.isArray(pokemon.types) ? pokemon.types.map(tipo => tipo.type.name) : ['Unknown'],
+            types: Array.isArray(pokemon.types) ? pokemon.types.map(tipo => {return {name: tipo.type.name}}) : [{name: 'Unknown'}],
         };
         return cleanPokemon;
     })
