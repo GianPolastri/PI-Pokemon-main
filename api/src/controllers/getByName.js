@@ -2,7 +2,7 @@ const axios = require("axios");
 const pokemonCleaner = require("../utils/pokemonCleaner");
 require("dotenv").config();
 const { API_URL } = process.env;
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 const { Op } = require("sequelize");
 
 const getByName = async (name) => {
@@ -12,6 +12,12 @@ const getByName = async (name) => {
         [Op.substring]: `${name.toLowerCase()}`,
       },
     },
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
+      }
+    }
   });
 
   
