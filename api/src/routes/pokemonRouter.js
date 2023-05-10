@@ -8,7 +8,7 @@ const pokemonRouter = Router();
 
 pokemonRouter.get("/", getAllPokemons);
 
-pokemonRouter.get('/:name', getPokemonByName)
+pokemonRouter.get('/name', getPokemonByName);
 
 pokemonRouter.get("/:idPokemon", getPokemonByID);
 
