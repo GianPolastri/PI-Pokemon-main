@@ -24,17 +24,33 @@ module.exports = (sequelize) => {
     hp:{
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 0,
+        max: 100,
+      },
     },
     atk:{
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 0,
+        max: 100,
+      },
     },
     def:{
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 0,
+        max: 100,
+      },
     },
     speed:{
       type: DataTypes.INTEGER,
+      validate: {
+        min: 0,
+        max: 100,
+      },
     },
     height:{
       type: DataTypes.INTEGER,
