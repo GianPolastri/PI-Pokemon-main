@@ -2,7 +2,7 @@ const {Type} = require('../db');
 
 
 const getTypesFromDB = async ()=>{
-    const allTypes = Type.findAll();
+    const allTypes = await Type.findAll();
     return allTypes;
 }
 
