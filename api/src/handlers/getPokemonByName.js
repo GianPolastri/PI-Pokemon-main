@@ -2,7 +2,7 @@ const getByName = require("../controllers/getByName");
 
 
 module.exports = async (req, res) => {
-  const { name } = req.params;
+  const { name } = req.query;
 
   try {
     const pokemon = await getByName(name);
