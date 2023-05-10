@@ -2,8 +2,20 @@ require("dotenv").config();
 const { API_URL } = process.env;
 const axios = require("axios");
 const pokemonCleaner = require("../utils/pokemonCleaner");
+const {Pokemon, Type} = require('../db');
 
 const getAll = async () => {
+
+  const dbPokemons = await Pokemon.findAll({
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
+      },
+    },
+  })
+
+
   const rawData = await axios
     .get(`${API_URL}/pokemon`)
     .then((response) => response.data)
@@ -23,7 +35,9 @@ const getAll = async () => {
 
   const allCleanPokemons = pokemonCleaner(rawPokemons);
   // console.log(allCleanPokemons);
-  return allCleanPokemons;
+
+  const allPokemons = [...dbPokemons, allCleanPokemons];
+  return allPokemons;
 };
 
 // getAll();
