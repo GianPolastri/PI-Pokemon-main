@@ -54,9 +54,15 @@ module.exports = (sequelize) => {
     },
     height:{
       type: DataTypes.INTEGER,
+      validate: {
+        min: 0,
+      },
     },
     weight:{
       type: DataTypes.INTEGER,
+      validate: {
+        min: 0,
+      },
     },
     created:{
       type: DataTypes.BOOLEAN,
