@@ -1,0 +1,36 @@
+.navContainer{
+    background-color: red;
+    width: 85.35rem;
+    height: 4rem;
+    display: flex;
+
+}
+
+
+.imgContainer img{
+    /* background-color: aqua; */
+    margin: 10px;
+    width: 3rem;
+    justify-content: flex-start;
+}
+
+
+.navegador{
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+    margin-left: 27rem;
+    align-items: center;
+    width: 20rem;
+    height: 4rem;
+}
+
+.links{
+    /* background-color: magenta; */
+    display: flex;
+    width: 20rem;
+    /* margin-left: 750%; */
+    justify-content: space-around;
+
+    
+}
