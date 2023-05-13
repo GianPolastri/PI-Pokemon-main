@@ -60,16 +60,19 @@ const Landing = () => {
             {console.log(user)}
             {console.log(errors)}
             <div>
-               <label>Nombre*:</label>
-               <input type="text" name="username" onChange={handleChange} />
+               <label>Username*:</label>
+               <input type="text" name="username" onChange={handleChange} /><br/>
+               {errors.username}
             </div>
             <div>
                <label>Email*:</label>
-               <input type="text" name="email" onChange={handleChange} />
+               <input type="text" name="email" onChange={handleChange} /><br/>
+               {errors.email}
             </div>
             <div>
                <label>Teléfono*:</label>
-               <input type="text" name="phone" onChange={handleChange} />
+               <input type="text" name="phone" onChange={handleChange} /><br/>
+               {errors.phone}
             </div>
             <div>
                <h6>*Campos obligatoios.</h6>
