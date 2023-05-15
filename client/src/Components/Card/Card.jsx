@@ -2,20 +2,20 @@ import React from "react";
 import "./Card.css";
 import { Link } from 'react-router-dom'
 
-const Card = (props) => {
+const Card = ({name, types, img}) => {
    return (
       <div className="card-container">
          <div className="inner-container">
-            <img className="pokemon-img" src={props.img} alt="" />
+            <img className="pokemon-img" src={img} alt="" />
          </div>
          <div className="inner-container">
-            <Link to={`/detail/${props.name}`}>
-               <h2>{props.name}</h2>
+            <Link to={`/detail/${name}`}>
+               <h2>{name}</h2>
             </Link>
          </div>
          
          <div className="inner-container">
-            {props.type}
+            {types.map(type=><div>{type.name}</div>)}
          </div>
       </div>
    );
