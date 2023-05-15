@@ -17,7 +17,7 @@ const getAll = async () => {
 
 
   const rawData = await axios
-    .get(`${API_URL}/pokemon`)
+    .get(`${API_URL}/pokemon?limit=50&offset=0`)
     .then((response) => response.data)
     .then((data) => data.results);
 
@@ -36,7 +36,7 @@ const getAll = async () => {
   const allCleanPokemons = pokemonCleaner(rawPokemons);
   // console.log(allCleanPokemons);
 
-  const allPokemons = [...dbPokemons, allCleanPokemons];
+  const allPokemons = [...dbPokemons, ...allCleanPokemons];
   return allPokemons;
 };
 
