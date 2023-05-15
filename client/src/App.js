@@ -29,7 +29,8 @@ function App() {
                   <Route path="/home" component={Home} />
                   <Route path="/detail/:name" component={Detail} />
                   <Route path="/create" component={Create} />
-                  <Route component={() => <Redirect to="/" />} />
+                  <Route path="/mypokemons"/>
+                  {/* <Route component={() => <Redirect to="/" />} /> */}
                   </Switch>
                </Route>
             </Switch>
