@@ -5,9 +5,15 @@ const Cards = ({ pokemonPartition, nextPage, prevPage }) => {
     return (
         <div>
             <div className="cards-container">
-            {pokemonPartition().map((pok) => (
-                <Card name={pok.name} types={pok.types} img={pok.img} id={pok.id}/>
-            ))}
+                {pokemonPartition().map((pok) => (
+                    <Card
+                        name={pok.name}
+                        types={pok.types}
+                        img={pok.img}
+                        id={pok.id}
+                    />
+                ))
+                }
             </div>
             <span>
                 <button onClick={prevPage}>Prev</button>
