@@ -1,0 +1,48 @@
+.loading-gif {
+    width: 8rem;
+    margin-right: 47%;
+}
+
+.detail-img {
+    height: 13rem;
+}
+
+.detail-card {
+    background-color: rgba(235, 205, 181, 0.774);
+    height: 27rem;
+    width: 45rem;
+    margin-top: 3.5rem;
+    border-radius: 3rem;
+    box-shadow: 5px 5px 10px #424242, -5px -5px 10px rgb(235, 205, 181);
+}
+
+.detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    height: 13rem;
+    justify-content: space-evenly;
+    margin-left: 4rem;
+    width: 20rem;
+    background-color: red;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stat label {
+    margin-right: 10px;
+}
+
+.stat meter{
+    margin-right: 3rem;
+}
+ 
