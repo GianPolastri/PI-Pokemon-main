@@ -35,32 +35,45 @@ const Detail = () => {
             
             <div className='stat'>
               <label htmlFor="hp">
-                HP: <meter id="hp" value={pokemonToDetail[0].hp}  min='0' max='100' low='20' high='60' optimum='80'></meter>
               </label>
+                HP: <meter id="hp" value={pokemonToDetail[0].hp}  min='0' max='100' low='20' high='60' optimum='80'></meter>
             </div>
 
             <div className='stat'>
               <label htmlFor="atk">
-                Attack: <meter id="atk" value={pokemonToDetail[0].atk}  min='0' max='100' low='20' high='60' optimum='80'></meter>
               </label>
+                Attack: <meter id="atk" value={pokemonToDetail[0].atk}  min='0' max='100' low='20' high='60' optimum='80'></meter>
             </div>
 
             <div className='stat'>
               <label htmlFor="def">
-                Defense: <meter id="def" value={pokemonToDetail[0].def}  min='0' max='100' low='20' high='60' optimum='80'></meter>
               </label>
+                Defense: <meter id="def" value={pokemonToDetail[0].def}  min='0' max='100' low='20' high='60' optimum='80'></meter>
             </div>
 
             <div className='stat'>
               <label htmlFor="speed">
-                Speed: <meter id="speed" value={pokemonToDetail[0].speed}  min='0' max='100' low='20' high='60' optimum='80'></meter>
               </label>
+                Speed: <meter id="speed" value={pokemonToDetail[0].speed}  min='0' max='100' low='20' high='60' optimum='80'></meter>
             </div>
 
           </div>
 
           <div className='extra-container'>
-            
+            <div>
+              <h4>ID: {pokemonToDetail[0].id}</h4>
+            </div>
+            <div>
+              <h4>Height: {pokemonToDetail[0].height/10}m</h4>
+            </div>
+            <div>
+              <h4>Weight: {pokemonToDetail[0].weight/10}Kg</h4>
+            </div>
+            <div className='types-section'>
+              <h4>
+                Types: <span>{pokemonToDetail[0].types.map(type=> <span>{type.name}, </span>)} </span> 
+              </h4>
+            </div>
           </div>
         </div>
       </div>) : (

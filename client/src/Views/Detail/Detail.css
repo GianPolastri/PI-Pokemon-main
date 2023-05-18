@@ -16,6 +16,11 @@
     box-shadow: 5px 5px 10px #424242, -5px -5px 10px rgb(235, 205, 181);
 }
 
+.info-container{
+    display:flex;
+    justify-content: space-evenly;
+}
+
 .detail-container {
     display: flex;
     justify-content: center;
@@ -27,22 +32,46 @@
     flex-direction: column;
     height: 13rem;
     justify-content: space-evenly;
-    margin-left: 4rem;
-    width: 20rem;
-    background-color: red;
+    margin-left: 2rem;
+    width: 18rem;
+    /* background-color: red; */
 }
 
 .stat {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    justify-content: space-between;
 }
 
 .stat label {
     margin-right: 10px;
+    font-size: x-large;
 }
 
 .stat meter{
     margin-right: 3rem;
+}
+
+meter{
+    width: 10rem;
+    height: 1.5rem;
+}
+
+.extra-container{
+    /* background-color: red; */
+    width: 18rem;
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+}
+
+.types-section{
+    /* margin-top: 1rem; */
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 2.5rem;
 }
  

@@ -21,4 +21,6 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+    width: 6rem;
 }
