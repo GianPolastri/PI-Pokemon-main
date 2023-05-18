@@ -71,7 +71,7 @@ const Detail = () => {
             </div>
             <div className='types-section'>
               <h4>
-                Types: <span>{pokemonToDetail[0].types.map(type=> <span>{type.name}, </span>)} </span> 
+                Types: <span>/{pokemonToDetail[0].types.map(type=> <span>{type.name}/</span>)} </span> 
               </h4>
             </div>
           </div>

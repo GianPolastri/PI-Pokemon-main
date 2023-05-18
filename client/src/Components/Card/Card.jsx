@@ -18,7 +18,7 @@ const Card = ({name, types, img, id}) => {
          
          
          <div className="inner-container">
-            <span>{types.map(type=> <span>{type.name}, </span>)}</span>
+            <span>/{types.map(type=> <span>{type.name}/</span>)}</span>
          </div>
       </div>
    );
