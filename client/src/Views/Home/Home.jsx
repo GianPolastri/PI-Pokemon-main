@@ -42,7 +42,7 @@ const Home = () => {
     const regex = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
     try {
       if(regex.test(search)){
-        console.log('entre aca');
+        // console.log('entre aca');
         const pokemonByUUID = await (axios.get(`http://localhost:3001/pokemon/${search}`)).then(response => response.data);
         console.log(pokemonByUUID);
         setPokemonFinder({pokemonFound: pokemonByUUID});

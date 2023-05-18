@@ -8,17 +8,6 @@ import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
    return (
-      // <BrowserRouter>
-      //    <div className="App">
-      //       <Route path="/" component={Navbar} />
-      //       <Switch>
-      //          <Route exact path="/" component={Landing} />
-      //          <Route path="/home" component={Home} />
-      //          <Route path="/detail/:name" component={Detail} />
-      //          <Route path="/create" component={Create} />
-      //       </Switch>
-      //    </div>
-      // </BrowserRouter>
       <BrowserRouter>
          <div className="App">
             <Switch>
@@ -41,14 +30,3 @@ function App() {
 
 export default App;
 
-{/* <Route path="/" component={Navbar} />
-<Route element={(
-   <>
-      <Navbar/>
-      <Outlet/>
-   </>
-   )}>
-   <Route path='/home' element={<Home/>}/>
-   <Route path='/team' element={<Detail/>}/>
-   <Route path='/create' element={<Create/>}/>
-        </Route> */}
