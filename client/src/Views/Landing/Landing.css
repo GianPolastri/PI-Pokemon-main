@@ -1,0 +1,19 @@
+.login-container{
+    position:fixed;
+    background-color: rgba(235, 205, 181, 0.774);
+    border-radius: 1.5rem;
+    box-shadow: 5px 5px 10px #424242, -5px -5px 10px rgb(235, 205, 181);
+    width: 20rem;
+    height: 19.417;
+    margin-top: 6rem;
+    margin-left: 4rem;
+}
+
+.login-button{
+    margin-bottom: 1.5rem;
+}
+
+.login-form{
+    width: 20rem;
+    height: 19.417;
+}

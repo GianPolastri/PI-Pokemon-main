@@ -55,28 +55,29 @@ const Landing = () => {
    };
 
    return (
-      <div>
-         <form onSubmit={handleSubmit}>
+      <div className="login-container">
+         <form className="login-form" onSubmit={handleSubmit}>
             {console.log(user)}
             {console.log(errors)}
+            <br/>
             <div>
                <label>Username*:</label>
                <input type="text" name="username" onChange={handleChange} /><br/>
                {errors.username}
             </div>
+            <br/>
             <div>
                <label>Email*:</label>
                <input type="text" name="email" onChange={handleChange} /><br/>
                {errors.email}
             </div>
+            <br/>
             <div>
                <label>Teléfono*:</label>
                <input type="text" name="phone" onChange={handleChange} /><br/>
                {errors.phone}
             </div>
-            <div>
-               <h6>*Campos obligatoios.</h6>
-            </div>
+            <br/>
             <div>
                <label for="team">Elije tu equipo:</label>
                <select name="team-names" id="team">
@@ -84,12 +85,12 @@ const Landing = () => {
                   <option value="sabiduria">Sabiduría</option>
                   <option value="instinto">Instinto</option>
                   <option value="sin-facción" selected>
-                     Sin facción
+                     Sin equipo
                   </option>
                </select>
             </div>
-
-            <button type="submit" disabled={disable(errors)}>
+            <br/>
+            <button className="login-button" type="submit" disabled={disable(errors)}>
                Log In
             </button>
          </form>
