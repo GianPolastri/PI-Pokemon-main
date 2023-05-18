@@ -4,13 +4,17 @@
     height: 7rem;
 
     width: 15rem;
-    background-color: goldenrod;
+    background-color: rgba(235, 205, 181, 0.774);
     box-shadow: 3px black inset;
     flex-direction:column;
     border: 3px solid black;
+    margin: 6px;
     border-radius: 20px;
     margin: 0.5rem; 
-
+    border-radius: 1.2rem;
+    /* box-shadow: 5px 5px 10px #424242, -5px -5px 10px rgb(235, 205, 181); */
+    box-shadow:  3px 3px 3px #424242,
+             -2px -2px 5px rgb(238, 221, 208);
 }
 
 .pokemon-img{
