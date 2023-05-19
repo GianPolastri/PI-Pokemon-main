@@ -8,7 +8,7 @@ import { createNewPokemon, getAllPokemons } from "../../Redux/Actions/Actions";
 import { useHistory } from "react-router-dom";
 
 const Create = () => {
-    const updatedPokemons = useSelector((state)=>state.allPokemons)
+    // const updatedPokemons = useSelector((state)=>state.allPokemons)
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -82,9 +82,7 @@ const Create = () => {
 
     const handleSubmit = (event) =>{
       event.preventDefault();
-      dispatch(createNewPokemon(newPokemon)).then(()=>{
-        dispatch(getAllPokemons())
-      })
+      dispatch(createNewPokemon(newPokemon))
       history.push('/home')
     }
 

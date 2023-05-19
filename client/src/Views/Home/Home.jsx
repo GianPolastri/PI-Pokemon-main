@@ -14,12 +14,12 @@ const Home = () => {
 
   useEffect(()=>{
     dispatch(getAllPokemons())
-    console.log('se ejecuto esto');
+    // console.log('se ejecuto esto');
   },[])
 
-  const updatedPokemons = () => {
-    dispatch(getAllPokemons())
-  }
+  // const updatedPokemons = () => {
+  //   dispatch(getAllPokemons())
+  // }
 
   const pokemonPartition = () => {
    if(pokemonFinder.length !== 0) return pokemonFinder.pokemonFound;
