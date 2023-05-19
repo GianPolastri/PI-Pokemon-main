@@ -33,10 +33,9 @@ export const validator = (input, name, errors, setErrors) => {
 export const disable = (errors) => {
    let disabled = true;
    for (let error in errors) {
-      if (errors[error] === "") disabled = false;
-      else disabled = true;
+      if (errors[error] !== "") return true;
    }
-   return disabled;
+   return false;
 };
 
 

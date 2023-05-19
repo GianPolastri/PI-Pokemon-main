@@ -2,6 +2,7 @@ import React from "react";
 import "./Create.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import {validator, disable} from "./createUtils"
 
 const Create = () => {
     const [newPokemon, setNewPokemon] = useState({
@@ -19,7 +20,16 @@ const Create = () => {
     const [allTypes, setAllTypes] = useState([]);
     const [typesLoaded, setTypesLoaded] = useState(false);
 
-    const [errors, setErrors] = useState()
+    const [errors, setErrors] = useState({
+        name: "Este campo es obligatorio",
+        img: "Este campo es obligatorio",
+        hp: "Este campo es obligatorio",
+        atk: "Este campo es obligatorio",
+        def: "Este campo es obligatorio",
+        speed: "Este campo es obligatorio",
+        height: "Este campo es obligatorio",
+        weight: "Este campo es obligatorio",
+    });
 
     const getTypes = async () => {
         const types = (await axios.get("http://localhost:3001/type")).data;
@@ -32,9 +42,7 @@ const Create = () => {
         console.log(allTypes);
     }, [typesLoaded]);
 
-    const validator = (input, name) => {
 
-    }
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -55,20 +63,21 @@ const Create = () => {
                 [name]: value,
             });
         }
-        // validator(
-        //    {
-        //       ...user,
-        //       [name]: value,
-        //    },
-        //    name,
-        //    errors,
-        //    setErrors
-        // );
-        console.log(newPokemon);
+        validator(
+            {
+                ...newPokemon,
+                [name]: value,
+            },
+            name,
+            errors,
+            setErrors
+        );
     };
 
     return (
         <div>
+            {console.log(newPokemon)}
+            {console.log(errors)}
             <form action="">
                 <div>
                     <label htmlFor="name">Nombre: </label>
@@ -124,12 +133,13 @@ const Create = () => {
                                 (typeID) =>
                                     allTypes.find((type) => type.id === typeID)
                                         ?.name || ""
-                            ).join(", ")}
+                            )
+                            .join(", ")}
                         readOnly
                     />
                 </div>
                 <div>
-                    <button type="submit">Create</button>
+                    <button type="submit" disabled={disable(errors)}>Create</button>
                 </div>
             </form>
         </div>
