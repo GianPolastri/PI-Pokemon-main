@@ -64,10 +64,10 @@ const Detail = () => {
               <h4>ID: {pokemonToDetail[0].id}</h4>
             </div>
             <div>
-              <h4>Height: {pokemonToDetail[0].height/10}m</h4>
+              <h4>Height: {pokemonToDetail[0].height}m</h4>
             </div>
             <div>
-              <h4>Weight: {pokemonToDetail[0].weight/10}Kg</h4>
+              <h4>Weight: {pokemonToDetail[0].weight}Kg</h4>
             </div>
             <div className='types-section'>
               <h4>

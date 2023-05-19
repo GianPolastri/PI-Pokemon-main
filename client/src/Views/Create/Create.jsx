@@ -2,9 +2,17 @@ import React from "react";
 import "./Create.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {validator, disable} from "./createUtils"
+import { validator, disable } from "./createUtils";
+import { useDispatch, useSelector } from "react-redux";
+import { createNewPokemon, getAllPokemons } from "../../Redux/Actions/Actions";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
+    const updatedPokemons = useSelector((state)=>state.allPokemons)
+    const dispatch = useDispatch();
+
+    const history = useHistory();
+
     const [newPokemon, setNewPokemon] = useState({
         name: "",
         img: "",
@@ -42,8 +50,6 @@ const Create = () => {
         console.log(allTypes);
     }, [typesLoaded]);
 
-
-
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -74,11 +80,19 @@ const Create = () => {
         );
     };
 
+    const handleSubmit = (event) =>{
+      event.preventDefault();
+      dispatch(createNewPokemon(newPokemon)).then(()=>{
+        dispatch(getAllPokemons())
+      })
+      history.push('/home')
+    }
+
     return (
         <div>
             {console.log(newPokemon)}
             {console.log(errors)}
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Nombre: </label>
                     <input type="text" name="name" onChange={handleChange} />
@@ -139,7 +153,9 @@ const Create = () => {
                     />
                 </div>
                 <div>
-                    <button type="submit" disabled={disable(errors)}>Create</button>
+                    <button type="submit" disabled={disable(errors)}>
+                        Create
+                    </button>
                 </div>
             </form>
         </div>
