@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./Cards.css";
-const Cards = ({ pokemonPartition, nextPage, prevPage }) => {
+const Cards = ({ pokemonPartition, nextPage, prevPage, currentPage, maxPage }) => {
     return (
         <div>
             <div className="cards-container">
@@ -15,8 +15,14 @@ const Cards = ({ pokemonPartition, nextPage, prevPage }) => {
                 ))
                 }
             </div>
-            <span>
+            <span className="pag-display">
                 <button onClick={prevPage}>Prev</button>
+                &nbsp;
+    
+                    <span> {currentPage/12 !== 0 ? <h6>{currentPage/12}</h6> : <h6></h6>} </span>
+                    <span> <h4>{(currentPage/12)+1}</h4> </span>
+                    <span> {currentPage <= maxPage ? <h6>{(currentPage/12)+2}</h6> : <h6></h6>} </span>
+                
                 &nbsp;
                 <button onClick={nextPage}>Next</button>
             </span>

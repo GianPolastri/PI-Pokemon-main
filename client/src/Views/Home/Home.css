@@ -15,5 +15,10 @@
 
 .loading-gif{
     width: 8rem;
-    margin-left: 47%;
+    margin-left: 45%;
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
 }

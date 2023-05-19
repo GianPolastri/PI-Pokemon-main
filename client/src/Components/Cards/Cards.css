@@ -4,5 +4,17 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.pag-display{
+    /* background-color: red; */
+   position: fixed; 
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+    margin-left: -3.8rem;
+}
+
+h4, h6{
+    display: inline-flex;
 }
