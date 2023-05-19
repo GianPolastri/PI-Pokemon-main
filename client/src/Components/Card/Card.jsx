@@ -12,7 +12,7 @@ const Card = ({name, types, img, id}) => {
          
          <div className="inner-container">
             <Link to={`/detail/${name}`}>
-               <h2>{name}</h2>
+               <h3>{name}</h3>
             </Link>
          </div>
          
