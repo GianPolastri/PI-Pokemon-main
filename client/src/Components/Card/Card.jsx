@@ -9,17 +9,21 @@ const Card = ({name, types, img, id}) => {
          <div className="inner-container">
             <img className="pokemon-img" src={img} alt="" />
          </div>
-         
-         <div className="inner-container">
-            <Link to={`/detail/${name}`}>
-               <h3>{name}</h3>
-            </Link>
-         </div>
-         
-         
-         <div className="inner-container">
-            <span>/{types.map(type=> <span>{type.name}/</span>)}</span>
-         </div>
+
+         <div className="info-container">
+            <div className="inner-container">
+               <Link to={`/detail/${name}`} className="link-name">
+                  <h3 className="name-container">{name}</h3>
+               </Link>
+               <div className="inner-container">
+                  <span className="id-container"><h6 id="id-space">ID: {id}</h6></span>
+                  
+                  <span className="type-container">/{types.map(type=> <span>{type.name}/</span>)}</span>
+               </div>
+               </div>
+            </div>
+            
+            
       </div>
    );
 };
