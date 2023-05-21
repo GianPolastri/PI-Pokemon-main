@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const GET_ALL_POKEMON = 'GET_ALL_POKEMON';
 export const UPDATE_POKEMON_LIST = 'UPDATE_POKEMON_LIST';
+export const FILTERS = 'FILTERS'
 
 
 
@@ -44,5 +45,14 @@ export function updatePokemonList(){
         } catch (error) {
             
         }
+    }
+}
+
+export function filters(filter){
+    return function(dispatch){
+        return dispatch({
+            type: FILTERS,
+            payload: filter
+        })
     }
 }

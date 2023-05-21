@@ -1,11 +1,18 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./Cards.css";
-const Cards = ({ pokemonPartition, nextPage, prevPage, currentPage, maxPage }) => {
+const Cards = ({ pokemonPartition, filtredPokemonsByType, filters, nextPage, prevPage, currentPage, maxPage }) => {
     return (
         <div>
             <div className="cards-container">
-                {pokemonPartition().map((pok) => (
+                { filters ? filtredPokemonsByType.map((pok) => (
+                    <Card
+                        name={pok.name}
+                        types={pok.types}
+                        img={pok.img}
+                        id={pok.id}
+                    />
+                )) : pokemonPartition().map((pok) => (
                     <Card
                         name={pok.name}
                         types={pok.types}

@@ -1,25 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Cards from '../../Components/Cards/Cards'
+import OrdYFil from '../../Components/OrdYFil/OrdYFil'
 import {useDispatch, useSelector} from 'react-redux'
 import { getAllPokemons } from '../../Redux/Actions/Actions'
 import axios from 'axios'
 
+
 const Home = () => {
   const dispatch = useDispatch();
   const allPokemons = useSelector(state=>state.allPokemons);
+  const filtredPokemonsByType = useSelector(state => state.filtredPokemonsByType);
+  const filters = useSelector(state => state.filters);
   const [currentPage, setCurrentPage] = useState(0);
-  const [search, setSearch] = useState('')
-  const [pokemonFinder, setPokemonFinder] = useState([])
+  const [search, setSearch] = useState('');
+  const [pokemonFinder, setPokemonFinder] = useState([]);
+  const [types, setTypes] = useState([]);
 
+  const getTypes = async () => {
+    const allTypes = (await axios("http://localhost:3001/type")).data;
+    setTypes(allTypes);
+  }
+  
   useEffect(()=>{
     dispatch(getAllPokemons())
     // console.log('se ejecuto esto');
+    getTypes();
+    console.log(types);
   },[])
 
-  // const updatedPokemons = () => {
-  //   dispatch(getAllPokemons())
-  // }
+  
 
   const pokemonPartition = () => {
    if(pokemonFinder.length !== 0) return pokemonFinder.pokemonFound;
@@ -82,8 +92,9 @@ const Home = () => {
       <div className='serach-container'>
         <input type='text' className='pokemonSearcher' placeholder='Buscar pokémon' onChange={searchHandler}/>
         <button className='pokemonSearcherButton' onClick={searchSubmit}>Buscar</button>
+        <OrdYFil allTypes={types}/>
       </div>
-      { allPokemons.length !== 0 ? (<Cards pokemonPartition={pokemonPartition} nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={allPokemons.length -12}/>) : (
+      { allPokemons.length !== 0 ? ( filters ? <Cards pokemonPartition={pokemonPartition} filtredPokemonsByType={filtredPokemonsByType} filters={filters} nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={allPokemons.length -12}/> : <Cards pokemonPartition={pokemonPartition} filtredPokemonsByType={filtredPokemonsByType} filters={filters}  nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={allPokemons.length -12}/>) : (
         // <h3>Loading...</h3>
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/029b8bd9-cb5a-41e4-9c7e-ee516face9bb/dayo3ow-7ac86c31-8b2b-4810-89f2-e6134caf1f2d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAyOWI4YmQ5LWNiNWEtNDFlNC05YzdlLWVlNTE2ZmFjZTliYlwvZGF5bzNvdy03YWM4NmMzMS04YjJiLTQ4MTAtODlmMi1lNjEzNGNhZjFmMmQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ooubhxjHp9PIMhVxvCFHziI6pxDAS8glXPWenUeomWs" alt="Loading..." className='loading-gif' />
       )
