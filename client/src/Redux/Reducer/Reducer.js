@@ -1,4 +1,4 @@
-import { GET_ALL_POKEMON, FILTERS} from "../Actions/Actions";
+import { GET_ALL_POKEMON, FILTERS, ORIGIN_FILTERS} from "../Actions/Actions";
 
 
 let initialState = {
@@ -16,7 +16,8 @@ function rootReducer(state=initialState, action){
             return {
                 ...state,
                 allPokemons: action.payload,
-                allPokemonsBackUp: action.payload
+                allPokemonsBackUp: action.payload,
+                filtredPokemonsByType: action.payload,
             }
             
         case FILTERS:
@@ -229,6 +230,37 @@ function rootReducer(state=initialState, action){
                     filters: true,
                 }
             }
+
+
+        case ORIGIN_FILTERS:
+
+            if(action.payload === '0'){
+                return {
+                    ...state,
+                    filtredPokemonsByType: [...state.allPokemonsBackUp],
+                    filters: false,
+                }
+            }
+            if(action.payload === 'created'){
+                const creados = state.filtredPokemonsByType.filter( pok => pok.created);
+
+                return{
+                    ...state,
+                    filtredPokemonsByType: creados,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'originals'){
+                const noCreados = state.filtredPokemonsByType.filter(pok => !pok.created);
+
+                return{
+                    ...state,
+                    filtredPokemonsByType: noCreados,
+                    filters: true,
+                }
+            }
+
+        
         default: return {...state}
             
     }

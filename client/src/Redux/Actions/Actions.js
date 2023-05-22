@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_ALL_POKEMON = 'GET_ALL_POKEMON';
 export const UPDATE_POKEMON_LIST = 'UPDATE_POKEMON_LIST';
 export const FILTERS = 'FILTERS'
+export const ORIGIN_FILTERS = 'ORIGIN-FILTERS'
 
 
 
@@ -53,6 +54,15 @@ export function filters(filter){
         return dispatch({
             type: FILTERS,
             payload: filter
+        })
+    }
+}
+
+export function originFilters(originFilter){
+    return function (dispatch){
+        return dispatch({
+            type: ORIGIN_FILTERS,
+            payload: originFilter
         })
     }
 }
