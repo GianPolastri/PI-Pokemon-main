@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./Cards.css";
-const Cards = ({ pokemonPartition, filtredPokemonsByType, filters, nextPage, prevPage, currentPage, maxPage }) => {
+const Cards = ({ pokemonPartition, filters, nextPage, prevPage, currentPage, maxPage }) => {
     return (
         <div>
             <div className="cards-container">
-                { filters ? filtredPokemonsByType.map((pok) => (
+                { filters ? pokemonPartition().map((pok) => (
                     <Card
                         name={pok.name}
                         types={pok.types}
