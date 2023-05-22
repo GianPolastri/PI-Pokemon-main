@@ -18,7 +18,7 @@ const OrdYFil = ({allTypes}) => {
         </select>
         <select name="filtrado" id="filter" onChange={filter}>
             <option defaultChecked value="0">-</option>
-            {allTypes.map(type=><option value={type.id}>{type.name}</option>)}  
+            {allTypes.map(type=><option value={type.name}>{type.name}</option>)}  
         </select>
     </div>
   )

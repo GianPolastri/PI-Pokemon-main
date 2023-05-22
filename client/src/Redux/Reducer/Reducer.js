@@ -29,9 +29,9 @@ function rootReducer(state=initialState, action){
                 }
             }
 
-            if(action.payload === '1'){
+            if(action.payload === 'normal'){
                 console.log(action.payload);
-                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === 'normal'))
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
                 console.log(allPokemonsByTypes);
                 return {
                     ...state,
@@ -39,9 +39,9 @@ function rootReducer(state=initialState, action){
                     filters: true,
                 }
             }
-            if(action.payload === '2'){
+            if(action.payload === 'fighting'){
                 console.log(action.payload);
-                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === 'fighting'))
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
                 console.log(allPokemonsByTypes);
                 return {
                     ...state,
@@ -49,9 +49,9 @@ function rootReducer(state=initialState, action){
                     filters: true,
                 }
             }
-            if(action.payload === '3'){
+            if(action.payload === 'flying'){
                 console.log(action.payload);
-                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === 'flying'))
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
                 console.log(allPokemonsByTypes);
                 return {
                     ...state,
@@ -59,7 +59,176 @@ function rootReducer(state=initialState, action){
                     filters: true,
                 }
             }
-    
+            if(action.payload === 'poison'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'ground'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'rock'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'bug'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'ghost'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'steel'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'fire'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'water'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'grass'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'electric'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'psychic'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'ice'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'dragon'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'dark'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'fairy'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'unknown'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
+            if(action.payload === 'shadow'){
+                console.log(action.payload);
+                let allPokemonsByTypes = state.allPokemons.filter(pokemon => pokemon.types.some(t => t.name === action.payload))
+                console.log(allPokemonsByTypes);
+                return {
+                    ...state,
+                    filtredPokemonsByType: allPokemonsByTypes,
+                    filters: true,
+                }
+            }
         default: return {...state}
             
     }

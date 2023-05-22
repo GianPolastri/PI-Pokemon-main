@@ -4,13 +4,13 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 1rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0rem;
 }
 
 .pag-display{
     /* background-color: red; */
    position: fixed; 
-   margin-top: 1rem;
+   margin-top: 0rem;
    margin-bottom: 1rem;
     margin-left: -3.8rem;
 }
