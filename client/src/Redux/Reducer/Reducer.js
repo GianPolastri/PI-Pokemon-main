@@ -25,6 +25,14 @@ function rootReducer(state=initialState, action){
                 allPokemons: action.payload,
                 allPokemonsBackUp: action.payload,
                 filtredPokemons: action.payload,
+                filters: {
+                    typeFilter: null,
+                    originFilter: null,
+                },
+                order: {
+                    alfabeticOrder: null,
+                    attackOrder: null,
+                },
             };
 
         case FILTERS:
@@ -48,6 +56,7 @@ function rootReducer(state=initialState, action){
 
 
         case ALFABETIC_ORDER:
+            console.log(state.order);
             state = {
                 ...state,
                 order: {
@@ -57,6 +66,7 @@ function rootReducer(state=initialState, action){
             }
 
         case ATTACK_ORDER:
+            console.log(state.order);
             state = {
                 ...state,
                 order: {
@@ -80,37 +90,43 @@ function rootReducer(state=initialState, action){
                 filtredPokemons = filtredPokemons.filter( pokemon => !pokemon.created);
             }
 
-            if(state.order.alfabeticOrder === 'asc'){
-                filtredPokemons = filtredPokemons.sort( (a,b) => {
-                    if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-                    if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-                    return 0;
-                })
-                
-            }else if(state.order.alfabeticOrder === 'desc'){
-                filtredPokemons = filtredPokemons.sort( (a,b) => {
-                    if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
-                    if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
-                    return 0;
-                })
-                
+            if(state.order.alfabeticOrder !== null){
+                if(state.order.alfabeticOrder === 'asc'){
+                    filtredPokemons = filtredPokemons.sort( (a,b) => {
+                        if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+                        if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+                        return 0;
+                    })
+                    
+                }else if(state.order.alfabeticOrder === 'desc'){
+                    filtredPokemons = filtredPokemons.sort( (a,b) => {
+                        if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+                        if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+                        return 0;
+                    })
+                    
+                }
             }
 
-            if(state.order.attackOrder === 'asc'){
-                filtredPokemons = filtredPokemons.sort( (a,b) => {
-                    if(a.atk> b.atk) return 1;
-                    if(a.atk < b.atk) return -1;
-                    return 0;
-                })
-                
-            }else if(state.order.attackOrder === 'desc'){
-                filtredPokemons = filtredPokemons.sort( (a,b) => {
-                    if(a.atk > b.atk) return -1;
-                    if(a.atk < b.atk) return 1;
-                    return 0;
-                })
-                
+            if(state.order.attackOrder !== null){
+                if(state.order.attackOrder === 'asc'){
+                    filtredPokemons = filtredPokemons.sort( (a,b) => {
+                        if(a.atk> b.atk) return 1;
+                        if(a.atk < b.atk) return -1;
+                        return 0;
+                    })
+                    
+                }else if(state.order.attackOrder === 'desc'){
+                    filtredPokemons = filtredPokemons.sort( (a,b) => {
+                        if(a.atk > b.atk) return -1;
+                        if(a.atk < b.atk) return 1;
+                        return 0;
+                    })
+                    
+                }
             }
+
+
 
             return {
                 ...state,

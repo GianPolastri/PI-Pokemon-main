@@ -31,7 +31,7 @@ const createPokemon = async (
    if (types.length === 0) types[0] = 10001;
 
    const newPokemon = await Pokemon.create({
-      name,
+      name: name.toLowerCase(),
       img,
       hp,
       atk,

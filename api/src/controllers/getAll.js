@@ -17,7 +17,7 @@ const getAll = async () => {
 
 
   const rawData = await axios
-    .get(`${API_URL}/pokemon?limit=50&offset=0`)
+    .get(`${API_URL}/pokemon?limit=150&offset=0`)
     .then((response) => response.data)
     .then((data) => data.results);
 
