@@ -10,7 +10,7 @@ import axios from 'axios'
 const Home = () => {
   const dispatch = useDispatch();
   const allPokemons = useSelector(state=>state.allPokemons);
-  const filtredPokemonsByType = useSelector(state => state.filtredPokemonsByType);
+  const filtredPokemons = useSelector(state => state.filtredPokemons);
   const filters = useSelector(state => state.filters);
   const [currentPage, setCurrentPage] = useState(0);
   const [search, setSearch] = useState('');
@@ -33,7 +33,7 @@ const Home = () => {
 
   const pokemonPartition = () => {
     if(filters){
-      return filtredPokemonsByType.slice(currentPage,currentPage+12);
+      return filtredPokemons.slice(currentPage,currentPage+12);
     }else{
       if(pokemonFinder.length !== 0) return pokemonFinder.pokemonFound;
        return allPokemons.slice(currentPage,currentPage+12);
@@ -48,7 +48,7 @@ const Home = () => {
     // console.log(allPokemons.length);
     // console.log(currentPage);
     if(filters){
-      if(currentPage < filtredPokemonsByType.length -12){
+      if(currentPage < filtredPokemons.length -12){
         setCurrentPage(currentPage + 12)
       }
     }else{
@@ -99,12 +99,13 @@ const Home = () => {
 
   return (
     <div className='home-container'>
+      {console.log(filters)}
       <div className='serach-container'>
         <input type='text' className='pokemonSearcher' placeholder='Buscar pokémon' onChange={searchHandler}/>
         <button className='pokemonSearcherButton' onClick={searchSubmit}>Buscar</button>
         <OrdYFil allTypes={types}/>
       </div>
-      { allPokemons.length !== 0 ? ( filters ? <Cards pokemonPartition={pokemonPartition}  filters={filters} nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={filters ? filtredPokemonsByType.length -12 : allPokemons.length -12}/> : <Cards pokemonPartition={pokemonPartition}  filters={filters}  nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={allPokemons.length -12}/>) : (
+      { allPokemons.length !== 0 ? ( filters ? <Cards pokemonPartition={pokemonPartition}  filters={filters} nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={filters ? filtredPokemons.length -12 : allPokemons.length -12}/> : <Cards pokemonPartition={pokemonPartition}  filters={filters}  nextPage={nextPage} prevPage={prevPage} currentPage={currentPage} maxPage={allPokemons.length -12}/>) : (
         // <h3>Loading...</h3>
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/029b8bd9-cb5a-41e4-9c7e-ee516face9bb/dayo3ow-7ac86c31-8b2b-4810-89f2-e6134caf1f2d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAyOWI4YmQ5LWNiNWEtNDFlNC05YzdlLWVlNTE2ZmFjZTliYlwvZGF5bzNvdy03YWM4NmMzMS04YjJiLTQ4MTAtODlmMi1lNjEzNGNhZjFmMmQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ooubhxjHp9PIMhVxvCFHziI6pxDAS8glXPWenUeomWs" alt="Loading..." className='loading-gif' />
       )

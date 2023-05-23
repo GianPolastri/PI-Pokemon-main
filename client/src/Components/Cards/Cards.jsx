@@ -5,22 +5,28 @@ const Cards = ({ pokemonPartition, filters, nextPage, prevPage, currentPage, max
     return (
         <div>
             <div className="cards-container">
-                { filters ? pokemonPartition().map((pok) => (
+                
+                {/* { filters ?  */}
+
+                {pokemonPartition().map((pok) => (
                     <Card
                         name={pok.name}
                         types={pok.types}
                         img={pok.img}
                         id={pok.id}
                     />
-                )) : pokemonPartition().map((pok) => (
+                ))}
+
+                 {/* : pokemonPartition().map((pok) => (
                     <Card
                         name={pok.name}
                         types={pok.types}
                         img={pok.img}
                         id={pok.id}
                     />
-                ))
-                }
+                )) */}
+                {/* } */}
+
             </div>
             <span className="pag-display">
                 <button onClick={prevPage}>Prev</button>

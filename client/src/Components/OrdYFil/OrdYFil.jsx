@@ -1,12 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { filters, originFilters } from '../../Redux/Actions/Actions';
+import { alfabeticOrder, filters, originFilters } from '../../Redux/Actions/Actions';
 
 const OrdYFil = ({allTypes}) => {
 
     const dispatch =  useDispatch()
 
     const filter = (event) => {
+      // dispatch(filters('0'))
       dispatch(filters(event.target.value))
 
     }
@@ -16,10 +17,25 @@ const OrdYFil = ({allTypes}) => {
       dispatch(originFilters(event.target.value))
     }
 
+    // const alfaOrder = (event) => {
+    //   // dispatch(alfabeticOrder('0'));
+    //   dispatch(alfabeticOrder(event.target.value));
+    // }
+
   return (
     <div>
-        <select name="ordenamiento" id="order">
-            <option defaultChecked value="">-</option>
+        <label htmlFor="orden-alfa">Alfabeticamente:</label>
+        <select name="orden-alfa" id="alfa-order" /*onChange={alfaOrder}*/>
+            <option defaultChecked value="0">-</option>
+            <option  value="asc">Ascendente</option>
+            <option  value="desc">Descendente</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <label htmlFor="orden-atk">Ataque:</label>
+        <select name="orden-atk" id="atk-order">
+            <option defaultChecked value="0">-</option>
+            <option  value="asc">Ascendente</option>
+            <option  value="desc">Descendente</option>
         </select>
 
         <div>
