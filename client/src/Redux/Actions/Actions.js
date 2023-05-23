@@ -2,9 +2,10 @@ import axios from 'axios';
 
 export const GET_ALL_POKEMON = 'GET_ALL_POKEMON';
 export const UPDATE_POKEMON_LIST = 'UPDATE_POKEMON_LIST';
-export const FILTERS = 'FILTERS'
-export const ORIGIN_FILTERS = 'ORIGIN-FILTERS'
-export const ALFABETIC_ORDER = 'ALFABETIC_ORDER'
+export const FILTERS = 'FILTERS';
+export const ORIGIN_FILTERS = 'ORIGIN-FILTERS';
+export const ALFABETIC_ORDER = 'ALFABETIC_ORDER';
+export const ATTACK_ORDER = 'ATTACK_ORDER'
 
 
 
@@ -73,6 +74,15 @@ export function alfabeticOrder(alfaOrder){
         return dispatch({
             type: ALFABETIC_ORDER,
             payload: alfaOrder,
+        })
+    }
+}
+
+export function attackOrder(atkOrder){
+    return function(dispatch){
+        return dispatch({
+            type: ATTACK_ORDER,
+            payload: atkOrder,
         })
     }
 }

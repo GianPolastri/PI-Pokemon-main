@@ -99,7 +99,6 @@ const Home = () => {
 
   return (
     <div className='home-container'>
-      {console.log(filters)}
       <div className='serach-container'>
         <input type='text' className='pokemonSearcher' placeholder='Buscar pokémon' onChange={searchHandler}/>
         <button className='pokemonSearcherButton' onClick={searchSubmit}>Buscar</button>

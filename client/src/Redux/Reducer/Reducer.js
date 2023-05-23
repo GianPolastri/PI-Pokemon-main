@@ -1,4 +1,4 @@
-import { GET_ALL_POKEMON, FILTERS, ORIGIN_FILTERS, ALFABETIC_ORDER} from "../Actions/Actions";
+import { GET_ALL_POKEMON, FILTERS, ORIGIN_FILTERS, ALFABETIC_ORDER, ATTACK_ORDER} from "../Actions/Actions";
 
 
 let initialState = {
@@ -8,6 +8,10 @@ let initialState = {
     filters: {
         typeFilter: null,
         originFilter: null,
+    },
+    order: {
+        alfabeticOrder: null,
+        attackOrder: null,
     },
     myPokemons: [],
        
@@ -41,6 +45,25 @@ function rootReducer(state=initialState, action){
                     originFilter: action.payload === '0' ? null : action.payload
                 }
             }
+
+
+        case ALFABETIC_ORDER:
+            state = {
+                ...state,
+                order: {
+                    ...state.order,
+                    alfabeticOrder: action.payload === '0' ? null : action.payload
+                }
+            }
+
+        case ATTACK_ORDER:
+            state = {
+                ...state,
+                order: {
+                    ...state.order,
+                    attackOrder: action.payload === '0' ? null : action.payload
+                }
+            }
             
 
         default:
@@ -57,6 +80,38 @@ function rootReducer(state=initialState, action){
                 filtredPokemons = filtredPokemons.filter( pokemon => !pokemon.created);
             }
 
+            if(state.order.alfabeticOrder === 'asc'){
+                filtredPokemons = filtredPokemons.sort( (a,b) => {
+                    if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+                    if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+                    return 0;
+                })
+                
+            }else if(state.order.alfabeticOrder === 'desc'){
+                filtredPokemons = filtredPokemons.sort( (a,b) => {
+                    if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+                    if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+                    return 0;
+                })
+                
+            }
+
+            if(state.order.attackOrder === 'asc'){
+                filtredPokemons = filtredPokemons.sort( (a,b) => {
+                    if(a.atk> b.atk) return 1;
+                    if(a.atk < b.atk) return -1;
+                    return 0;
+                })
+                
+            }else if(state.order.attackOrder === 'desc'){
+                filtredPokemons = filtredPokemons.sort( (a,b) => {
+                    if(a.atk > b.atk) return -1;
+                    if(a.atk < b.atk) return 1;
+                    return 0;
+                })
+                
+            }
+
             return {
                 ...state,
                 filtredPokemons,
@@ -64,7 +119,10 @@ function rootReducer(state=initialState, action){
     }
 }
 
-
+// state.filtredPokemonsByType.sort((a,b) => {
+    //                     if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+    //                     if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+    //                     return 0;
 
 
 

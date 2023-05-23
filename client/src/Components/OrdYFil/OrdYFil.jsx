@@ -1,38 +1,42 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { alfabeticOrder, filters, originFilters } from '../../Redux/Actions/Actions';
+import { alfabeticOrder, filters, originFilters, attackOrder } from '../../Redux/Actions/Actions';
 
 const OrdYFil = ({allTypes}) => {
 
     const dispatch =  useDispatch()
 
     const filter = (event) => {
-      // dispatch(filters('0'))
+      
       dispatch(filters(event.target.value))
 
     }
 
     const originFilter = (event) => {
-      dispatch(originFilters('0'))
+      
       dispatch(originFilters(event.target.value))
     }
 
-    // const alfaOrder = (event) => {
-    //   // dispatch(alfabeticOrder('0'));
-    //   dispatch(alfabeticOrder(event.target.value));
-    // }
+    const alfaOrder = (event) => {
+      // dispatch(alfabeticOrder('0'));
+      dispatch(alfabeticOrder(event.target.value));
+    }
+
+    const atkOrder = (event) => {
+      dispatch(attackOrder(event.target.value))
+    }
 
   return (
     <div>
         <label htmlFor="orden-alfa">Alfabeticamente:</label>
-        <select name="orden-alfa" id="alfa-order" /*onChange={alfaOrder}*/>
+        <select name="orden-alfa" id="alfa-order" onChange={alfaOrder}>
             <option defaultChecked value="0">-</option>
             <option  value="asc">Ascendente</option>
             <option  value="desc">Descendente</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <label htmlFor="orden-atk">Ataque:</label>
-        <select name="orden-atk" id="atk-order">
+        <select name="orden-atk" id="atk-order" onChange={atkOrder}>
             <option defaultChecked value="0">-</option>
             <option  value="asc">Ascendente</option>
             <option  value="desc">Descendente</option>
