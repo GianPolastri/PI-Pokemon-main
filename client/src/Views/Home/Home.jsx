@@ -12,6 +12,7 @@ const Home = () => {
   const allPokemons = useSelector(state=>state.allPokemons);
   const filtredPokemons = useSelector(state => state.filtredPokemons);
   const filters = useSelector(state => state.filters);
+  const order = useSelector(state => state.order)
   const [currentPage, setCurrentPage] = useState(0);
   const [search, setSearch] = useState('');
   const [pokemonFinder, setPokemonFinder] = useState([]);
@@ -26,13 +27,12 @@ const Home = () => {
     dispatch(getAllPokemons())
     // console.log('se ejecuto esto');
     getTypes();
-    console.log(types);
   },[])
 
   
 
   const pokemonPartition = () => {
-    if(filters){
+    if(filters.typeFilter !== null || filters.originFilter !== null || order.alfabeticOrder !== null || order.attackOrder !== null){
       return filtredPokemons.slice(currentPage,currentPage+12);
     }else{
       if(pokemonFinder.length !== 0) return pokemonFinder.pokemonFound;
@@ -66,6 +66,7 @@ const Home = () => {
   const searchHandler = ({target}) => {
     setCurrentPage(0);
     setSearch(target.value)
+    console.log(search);
   }
 
   const searchSubmit = async () => {
@@ -78,12 +79,15 @@ const Home = () => {
         setPokemonFinder({pokemonFound: pokemonByUUID});
       }else if(!isNaN(search)){
         const pokemonByID = (await axios.get(`http://localhost:3001/pokemon/${search}`)).data
+        console.log(pokemonByID);
         setPokemonFinder({pokemonFound: [pokemonByID]})
 
       }else{
+        console.log(search);
         const pokemonByName = ((await axios.get(`http://localhost:3001/pokemon/name?name=${search}`)).data);
-        // console.log(pokemonByName);
+        console.log(pokemonByName);
         setPokemonFinder({pokemonFound: pokemonByName});
+        console.log(pokemonFinder.pokemonFound)
         // console.log(pokemonFinder);
       }
     } catch (error) {
