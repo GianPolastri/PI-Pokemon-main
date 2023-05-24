@@ -57,8 +57,8 @@ const Landing = () => {
    return (
       <div className="login-container">
          <form className="login-form" onSubmit={handleSubmit}>
-            {console.log(user)}
-            {console.log(errors)}
+            {/* {console.log(user)}
+            {console.log(errors)} */}
             <br/>
             <div>
                <label>Username*:</label>
