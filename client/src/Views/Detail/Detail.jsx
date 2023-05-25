@@ -60,20 +60,30 @@ const Detail = () => {
           </div>
 
           <div className='extra-container'>
-            <div>
-              <h4>ID: {pokemonToDetail[0].id}</h4>
-            </div>
-            <div>
-              <h4>Height: {pokemonToDetail[0].height}m</h4>
-            </div>
-            <div>
-              <h4>Weight: {pokemonToDetail[0].weight}Kg</h4>
-            </div>
-            <div className='types-section'>
-              <h4>
-                Types: <span>/{pokemonToDetail[0].types.map(type=> <span>{type.name}/</span>)} </span> 
-              </h4>
-            </div>
+              {/* <div>
+                <h4>ID: {pokemonToDetail[0].id}</h4>
+              </div>
+              <div>
+                <h4>Height: {pokemonToDetail[0].height}m</h4>
+              </div>
+              <div>
+                <h4>Weight: {pokemonToDetail[0].weight}Kg</h4>
+              </div> */}
+
+              <span>
+                <b>Name: {pokemonToDetail[0].name}</b>
+              </span>
+              <span>
+                <b>Height: {pokemonToDetail[0].height}m</b>
+              </span>
+              <span>
+                <b>Weight: {pokemonToDetail[0].weight}Kg</b>
+              </span>
+              <span>
+                <b>Types: <span>/{pokemonToDetail[0].types.map(type=> <span>{type.name}/</span>)} </span></b> 
+              </span>
+            {/* <div className='types-section'>
+            </div> */}
           </div>
         </div>
       </div>) : (

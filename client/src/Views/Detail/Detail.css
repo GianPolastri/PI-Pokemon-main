@@ -61,9 +61,13 @@ meter{
 
 .extra-container{
     /* background-color: red; */
+
     width: 18rem;
-    margin-top: 0rem;
-    margin-bottom: 0.2rem;
+    /* margin-top: 0rem;
+    margin-bottom: 0.2rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .types-section{
