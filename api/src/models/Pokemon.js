@@ -53,13 +53,13 @@ module.exports = (sequelize) => {
       },
     },
     height:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       validate: {
         min: 0,
       },
     },
     weight:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       validate: {
         min: 0,
       },
