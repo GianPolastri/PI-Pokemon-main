@@ -4,7 +4,7 @@
 
 .form-container{
     width: 35rem;
-    height: 20rem;
+    height: 22rem;
     margin-left: 3rem;
     display: flex;
     justify-content: space-around;
@@ -38,6 +38,8 @@
 
 .types-selector{
     width: 10rem;
+    height: 3rem;
+    margin-left: 5rem;
 }
 
 .form-row{
@@ -79,4 +81,32 @@
 
 img{
     height: 5rem;
+}
+
+input{
+    height: 1rem;
+    margin-bottom: 0;
+    margin-right: 0.7rem;
+}
+
+.errors-display{
+    margin-top: 0;
+    font-size: xx-small;
+}
+
+#types-selector{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* background-color: red; */
+    width: fit-content;
+    margin-top: 0;
+}
+
+#type-select-display{
+    margin-right: -0rem;
+}
+
+.types-label{
+    margin-right: 12rem;
 }

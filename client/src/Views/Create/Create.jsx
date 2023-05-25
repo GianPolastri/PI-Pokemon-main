@@ -101,6 +101,7 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                            <span className="errors-display">{errors.name}</span>
 
                         <div className="form-row">
                             <label htmlFor="img">Imagén: </label>
@@ -110,6 +111,7 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <span className="errors-display">{errors.img}</span>
 
                         <div className="form-row">
                             <label htmlFor="hp">HP: </label>
@@ -119,6 +121,7 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <span className="errors-display">{errors.hp}</span>
 
                         <div className="form-row">
                             <label htmlFor="atk">Attack: </label>
@@ -128,6 +131,7 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <span className="errors-display">{errors.atk}</span>
 
                         <div className="form-row">
                             <label htmlFor="def">Defense: </label>
@@ -137,7 +141,10 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <span className="errors-display">{errors.def}</span>
+                    </div>
 
+                    <div className="form-column">
                         <div className="form-row">
                             <label htmlFor="speed">Speed: </label>
                             <input
@@ -146,9 +153,8 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
-                    </div>
+                        <span className="errors-display">{errors.speed}</span>
 
-                    <div className="form-column">
                         <div className="form-row">
                             <label htmlFor="height">Height: </label>
                             <input
@@ -158,6 +164,7 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <span className="errors-display">{errors.height}</span>
 
                         <div className="form-row">
                             <label htmlFor="weight">Weight: </label>
@@ -168,10 +175,11 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <span className="errors-display">{errors.weight}</span>
 
-                        <div className="form-row">
-                            <label htmlFor="types">Type/s: </label>
-                            <br />
+                        <div className="form-row" id="types-selector">
+                        <label htmlFor="types" className="types-label">Type/s: </label>
+                            
                             <select
                                 name="types"
                                 id=""
@@ -184,19 +192,21 @@ const Create = () => {
                                     <option value={type.id}>{type.name}</option>
                                 ))}
                             </select>
-                            <br />
+                            
                             <input
-                                placeholder="No selection"
-                                value={newPokemon.types
+                            id="type-select-display"
+                              placeholder="No selection"
+                              value={newPokemon.types
                                     .map(
                                         (typeID) =>
-                                            allTypes.find(
-                                                (type) => type.id === typeID
-                                            )?.name || ""
-                                    )
-                                    .join(", ")}
-                                readOnly
+                                          allTypes.find(
+                                            (type) => type.id === typeID
+                                          )?.name || ""
+                                        )
+                                      .join(", ")}
+                                    readOnly
                             />
+                            
                         </div>
 
                         <div>
