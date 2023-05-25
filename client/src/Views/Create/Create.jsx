@@ -80,53 +80,75 @@ const Create = () => {
         );
     };
 
-    const handleSubmit = (event) =>{
-      event.preventDefault();
-      dispatch(createNewPokemon(newPokemon))
-      history.push('/home')
-    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(createNewPokemon(newPokemon));
+        history.push("/home");
+    };
 
     return (
-        <div>
+        <div className="create-container">
             <div className="form-container">
                 {console.log(newPokemon)}
                 {console.log(errors)}
                 <form action="" onSubmit={handleSubmit} className="form-inputs">
                     <div className="form-column">
-                        
                         <div className="form-row">
                             <label htmlFor="name">Nombre: </label>
-                            <input type="text" name="name" onChange={handleChange} />
+                            <input
+                                type="text"
+                                name="name"
+                                onChange={handleChange}
+                            />
                         </div>
-                        
+
                         <div className="form-row">
                             <label htmlFor="img">Imagén: </label>
-                            <input type="text" name="img" onChange={handleChange} />
+                            <input
+                                type="text"
+                                name="img"
+                                onChange={handleChange}
+                            />
                         </div>
-                        
-                        <div className="form-row"> 
+
+                        <div className="form-row">
                             <label htmlFor="hp">HP: </label>
-                            <input type="number" name="hp" onChange={handleChange} />
+                            <input
+                                type="number"
+                                name="hp"
+                                onChange={handleChange}
+                            />
                         </div>
-                        
+
                         <div className="form-row">
                             <label htmlFor="atk">Attack: </label>
-                            <input type="number" name="atk" onChange={handleChange} />
+                            <input
+                                type="number"
+                                name="atk"
+                                onChange={handleChange}
+                            />
                         </div>
 
                         <div className="form-row">
                             <label htmlFor="def">Defense: </label>
-                            <input type="number" name="def" onChange={handleChange} />
+                            <input
+                                type="number"
+                                name="def"
+                                onChange={handleChange}
+                            />
                         </div>
 
                         <div className="form-row">
                             <label htmlFor="speed">Speed: </label>
-                            <input type="number" name="speed" onChange={handleChange} />
+                            <input
+                                type="number"
+                                name="speed"
+                                onChange={handleChange}
+                            />
                         </div>
                     </div>
 
                     <div className="form-column">
-
                         <div className="form-row">
                             <label htmlFor="height">Height: </label>
                             <input
@@ -136,7 +158,7 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
-                        
+
                         <div className="form-row">
                             <label htmlFor="weight">Weight: </label>
                             <input
@@ -146,11 +168,18 @@ const Create = () => {
                                 onChange={handleChange}
                             />
                         </div>
-                        
+
                         <div className="form-row">
                             <label htmlFor="types">Type/s: </label>
                             <br />
-                            <select name="types" id="" multiple onChange={handleChange} size='3' className="types-selector">
+                            <select
+                                name="types"
+                                id=""
+                                multiple
+                                onChange={handleChange}
+                                size="3"
+                                className="types-selector"
+                            >
                                 {allTypes.map((type) => (
                                     <option value={type.id}>{type.name}</option>
                                 ))}
@@ -161,8 +190,9 @@ const Create = () => {
                                 value={newPokemon.types
                                     .map(
                                         (typeID) =>
-                                            allTypes.find((type) => type.id === typeID)
-                                                ?.name || ""
+                                            allTypes.find(
+                                                (type) => type.id === typeID
+                                            )?.name || ""
                                     )
                                     .join(", ")}
                                 readOnly
@@ -175,8 +205,117 @@ const Create = () => {
                             </button>
                         </div>
                     </div>
-                    
                 </form>
+            </div>
+
+{/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
+
+            <div className="form-container">
+                <div className="form-inputs" id="inputs-display">
+                    <div className="img-container">
+                        <img
+                            src={newPokemon.img}
+                            alt=""
+                        />
+                    </div>
+                    <div className="info-container" id="info-display">
+                        <div className="stats-container">
+                            <div className="stat">
+                                <label htmlFor="hp"></label>
+                                HP:{" "}
+                                <meter
+                                    id="hp"
+                                    value={newPokemon.hp}
+                                    min="0"
+                                    max="100"
+                                    low="20"
+                                    high="60"
+                                    optimum="80"
+                                ></meter>
+                            </div>
+
+                            <div className="stat">
+                                <label htmlFor="atk"></label>
+                                Attack:{" "}
+                                <meter
+                                    id="atk"
+                                    value={newPokemon.atk}
+                                    min="0"
+                                    max="100"
+                                    low="20"
+                                    high="60"
+                                    optimum="80"
+                                ></meter>
+                            </div>
+
+                            <div className="stat">
+                                <label htmlFor="def"></label>
+                                Defense:{" "}
+                                <meter
+                                    id="def"
+                                    value={newPokemon.def}
+                                    min="0"
+                                    max="100"
+                                    low="20"
+                                    high="60"
+                                    optimum="80"
+                                ></meter>
+                            </div>
+
+                            <div className="stat">
+                                <label htmlFor="speed"></label>
+                                Speed:{" "}
+                                <meter
+                                    id="speed"
+                                    value={newPokemon.speed}
+                                    min="0"
+                                    max="100"
+                                    low="20"
+                                    high="60"
+                                    optimum="80"
+                                ></meter>
+                            </div>
+                        </div>
+
+                        <div className="extra-container" id="extra-container-display">
+                            <div className="data-display">
+                                <span>
+                                    <b>Name: {newPokemon.name}</b>
+                                </span>
+                                <span>
+                                    <b>Height: {newPokemon.height}m</b>
+                                </span>
+                                <span>
+                                    <b>Weight: {newPokemon.weight}Kg</b>
+                                </span>
+                                <span>
+                                    <b>
+                                        Types:{" "}
+                                        <span>
+                                            /
+                                            {console.log(newPokemon.types)}
+                                            {console.log(allTypes)}
+                                            {newPokemon.types.filter(
+                                                (i) => (
+                                                    <span>{allTypes.forEach( t => {
+                                                        if(t.id === i) return (<span> {t.name} </span>)
+                                                    })}</span>
+                                                )
+                                            )}{" "}
+
+                                        </span>
+                                    </b>
+                                </span>
+                            </div>
+                            <div>
+                            </div>
+                            <div>
+                            </div>
+                            <div className="types-section">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

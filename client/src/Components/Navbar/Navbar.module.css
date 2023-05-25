@@ -9,8 +9,9 @@
 
 .imgContainer img{
     /* background-color: aqua; */
-    margin: 10px;
-    width: 3rem;
+    margin-left: 1rem;
+    width: 4rem;
+    height: 4rem;
     justify-content: flex-start;
 }
 
@@ -19,7 +20,7 @@
     /* background-color: blueviolet; */
     display: flex;
     justify-content: center;
-    margin-left: 27rem;
+    margin-left: 21rem;
     align-items: center;
     width: 20rem;
     height: 4rem;

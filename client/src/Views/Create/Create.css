@@ -1,3 +1,7 @@
+.create-container{
+    display: flex;
+}
+
 .form-container{
     width: 35rem;
     height: 20rem;
@@ -42,3 +46,37 @@
     justify-content: space-between;
 }
 
+.img-container{
+    margin-left: 9rem;
+    /* background-color: red; */
+    height: 5rem;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#inputs-display{
+    display: flex;
+   
+}
+
+#info-display{
+    width: 100%;
+}
+
+#extra-container-display div{
+    margin-top: 0rem;
+}
+
+.data-display{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 13rem;
+    margin-top: 0;
+}
+
+img{
+    height: 5rem;
+}
