@@ -12,12 +12,12 @@ const Navbar = () => {
         <div className={styles.links}>
           <Link to='/home'>Home</Link>
           <Link to='/create'>Create</Link>
-          <Link to='/favs'>Favs</Link>
+          {/* <Link to='/favs'>Favs</Link> */}
+          <Link to='/' style={{alignItem: 'flexEnd',}}>
+            Log Out
+          </Link>
         </div>
       </div>
-      <Link to='/' style={{alignItem: 'flexEnd',}}>
-        <h4 >Log Out</h4>
-      </Link>
     </div>
   )
 }

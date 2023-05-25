@@ -20,18 +20,19 @@
     /* background-color: blueviolet; */
     display: flex;
     justify-content: center;
-    margin-left: 21rem;
+    margin-left: 6rem;
     align-items: center;
-    width: 20rem;
+    width: 40rem;
     height: 4rem;
 }
 
 .links{
     /* background-color: magenta; */
     display: flex;
-    width: 20rem;
+    width: 40rem;
+    margin-left: 50%;
     /* margin-left: 750%; */
-    justify-content: space-around;
+    justify-content: space-between;
 
     
 }
