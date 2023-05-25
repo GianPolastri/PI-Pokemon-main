@@ -88,74 +88,96 @@ const Create = () => {
 
     return (
         <div>
-            {console.log(newPokemon)}
-            {console.log(errors)}
-            <form action="" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Nombre: </label>
-                    <input type="text" name="name" onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="img">Imagén: </label>
-                    <input type="text" name="img" onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="hp">HP: </label>
-                    <input type="number" name="hp" onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="atk">Attack: </label>
-                    <input type="number" name="atk" onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="def">Defense: </label>
-                    <input type="number" name="def" onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="speed">Speed: </label>
-                    <input type="number" name="speed" onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="height">Height: </label>
-                    <input
-                        type="number"
-                        name="height"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="weight">Weight: </label>
-                    <input
-                        type="number"
-                        name="weight"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="types">Type/s: </label>
-                    <select name="types" id="" multiple onChange={handleChange}>
-                        {allTypes.map((type) => (
-                            <option value={type.id}>{type.name}</option>
-                        ))}
-                    </select>
-                    <input
-                        placeholder="No selection"
-                        value={newPokemon.types
-                            .map(
-                                (typeID) =>
-                                    allTypes.find((type) => type.id === typeID)
-                                        ?.name || ""
-                            )
-                            .join(", ")}
-                        readOnly
-                    />
-                </div>
-                <div>
-                    <button type="submit" disabled={disable(errors)}>
-                        Create
-                    </button>
-                </div>
-            </form>
+            <div className="form-container">
+                {console.log(newPokemon)}
+                {console.log(errors)}
+                <form action="" onSubmit={handleSubmit} className="form-inputs">
+                    <div className="form-column">
+                        
+                        <div className="form-row">
+                            <label htmlFor="name">Nombre: </label>
+                            <input type="text" name="name" onChange={handleChange} />
+                        </div>
+                        
+                        <div className="form-row">
+                            <label htmlFor="img">Imagén: </label>
+                            <input type="text" name="img" onChange={handleChange} />
+                        </div>
+                        
+                        <div className="form-row"> 
+                            <label htmlFor="hp">HP: </label>
+                            <input type="number" name="hp" onChange={handleChange} />
+                        </div>
+                        
+                        <div className="form-row">
+                            <label htmlFor="atk">Attack: </label>
+                            <input type="number" name="atk" onChange={handleChange} />
+                        </div>
+
+                        <div className="form-row">
+                            <label htmlFor="def">Defense: </label>
+                            <input type="number" name="def" onChange={handleChange} />
+                        </div>
+
+                        <div className="form-row">
+                            <label htmlFor="speed">Speed: </label>
+                            <input type="number" name="speed" onChange={handleChange} />
+                        </div>
+                    </div>
+
+                    <div className="form-column">
+
+                        <div className="form-row">
+                            <label htmlFor="height">Height: </label>
+                            <input
+                                type="number"
+                                step="0.01"
+                                name="height"
+                                onChange={handleChange}
+                            />
+                        </div>
+                        
+                        <div className="form-row">
+                            <label htmlFor="weight">Weight: </label>
+                            <input
+                                type="number"
+                                step="0.01"
+                                name="weight"
+                                onChange={handleChange}
+                            />
+                        </div>
+                        
+                        <div className="form-row">
+                            <label htmlFor="types">Type/s: </label>
+                            <br />
+                            <select name="types" id="" multiple onChange={handleChange} size='3' className="types-selector">
+                                {allTypes.map((type) => (
+                                    <option value={type.id}>{type.name}</option>
+                                ))}
+                            </select>
+                            <br />
+                            <input
+                                placeholder="No selection"
+                                value={newPokemon.types
+                                    .map(
+                                        (typeID) =>
+                                            allTypes.find((type) => type.id === typeID)
+                                                ?.name || ""
+                                    )
+                                    .join(", ")}
+                                readOnly
+                            />
+                        </div>
+
+                        <div>
+                            <button type="submit" disabled={disable(errors)}>
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
     );
 };
